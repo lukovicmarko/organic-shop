@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Apple',
     image: '/images/apple.png',
     description:
@@ -13,7 +12,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '2',
     name: 'Bread',
     image: '/images/bread.png',
     description:
@@ -26,7 +24,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'Lemon',
     image: '/images/lemon.png',
     description:
@@ -39,7 +36,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '4',
     name: 'Strawberry',
     image: '/images/strawberry.png',
     description:
@@ -52,7 +48,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: '5',
     name: 'Tomato',
     image: '/images/tomato.png',
     description:
