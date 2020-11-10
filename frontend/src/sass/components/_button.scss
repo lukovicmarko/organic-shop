@@ -1,0 +1,11 @@
+.btn{
+        background-color: $light-green;
+        color: $color-white;
+        display: inline-block;
+        padding: 1rem 3rem;
+        margin-top: 1rem;
+        border-radius: 3px;
+        &:hover{
+            opacity: .9;
+        } 
+    }

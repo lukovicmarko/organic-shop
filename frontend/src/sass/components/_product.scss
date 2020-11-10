@@ -1,0 +1,21 @@
+.product{
+    // width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $color-grey;
+    border-radius: 2px;
+    padding: 2rem 0;
+    
+    &-image{
+        width: 10rem;
+        height: 7rem;
+    }
+    
+    &-price{
+        margin: 1rem 0;
+    }
+
+    
+}

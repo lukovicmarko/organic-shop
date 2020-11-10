@@ -1,0 +1,9 @@
+.product-details{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    &__image{
+        width: 47rem;
+        height: 34rem;
+    }
+}

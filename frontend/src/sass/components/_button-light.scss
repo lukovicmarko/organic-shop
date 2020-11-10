@@ -1,0 +1,12 @@
+.btn-light{       
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(34, 187, 167, 0.3); 
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;   
+    i{
+        color: $light-green;      
+    }
+}
