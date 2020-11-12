@@ -17,10 +17,10 @@ const Navbar = () => {
                 <div style={{ display: 'flex' }}>
                     <li id="navbar-cart">
                         <Link to="/cart">
-                            <img src="/icons/cart.png" className="navbar-cart__image" alt="cart.png" />
+                            <img src="/icons/shopping-bag.png" className="navbar-cart__image" alt="cart.png" />
                         </Link>
                     </li>
-                    <CartCount count={10} />
+                    <CartCount />
                 </div>
 
             </ul>

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { listProductDetails } from '../actions/productActions';
 import Message from '../components/Message';
 import Spinner from '../components/Spinner';
 import Rating from '../components/Rating';
 import AddToCartButton from '../components/AddToCartButton';
+import { listProductDetails } from '../actions/productActions';
 
 const ProductScreen = ({ history, match }) => {
-    const [qty, setQty] = useState(0);
+    const [qty, setQty] = useState(1);
 
     const dispatch = useDispatch();
 
