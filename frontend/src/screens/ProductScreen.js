@@ -1,31 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { listProductDetails } from '../actions/productActions';
+import Message from '../components/Message';
+import Spinner from '../components/Spinner';
 
-const ProductScreen = ({ match }) => {
-    const [product, setProduct] = useState({});
+const ProductScreen = ({ history, match }) => {
+    const [qty, setQty] = useState(0);
+
+    const dispatch = useDispatch();
+
+    const productDetails = useSelector(state => state.productDetails);
+
+    const { loading, error, product } = productDetails;
     const { name, image } = product;
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            const { data } = await axios.get(`/api/products/${match.params.id}`);
-            setProduct(data);
-        }
+        dispatch(listProductDetails(match.params.id));
+    }, [dispatch, match]);
 
-        fetchProduct();
-    }, [match]);
 
     return (
         <>
             <Link className="btn-light" to="/" >
                 <i className="fas fa-angle-left"></i>
             </Link>
-            <div className="product-details">
-                <img src={image} className="product-details__image" alt="product.png" />
-                <div>
-                    {name}
-                </div>
-            </div>
+            {
+                loading ? <Spinner /> : error ? <Message>{error}</Message> : (
+                    <div className="product-details">
+                        <img src={image} className="product-details__image" alt="product.png" />
+                        <div>
+                            {name}
+                        </div>
+                    </div>
+                )
+            }
+
         </>
     )
 }

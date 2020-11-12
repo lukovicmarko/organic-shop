@@ -1,20 +1,35 @@
-.product{
-    // width: 250px;
+.product{  
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 1px solid $color-grey;
     border-radius: 2px;
-    padding: 2rem 0;
-    
+    padding: 0 2rem 2rem 2rem;
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,0.09);    
+
+    &-countInStock{       
+        color: $color-white;
+        padding: 0 1.5rem;
+        margin-bottom: 1rem;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        height: 1.56rem;
+        text-transform: uppercase;
+    }
+
     &-image{
         width: 10rem;
         height: 7rem;
     }
-    
+
+    &-name{
+        margin-bottom: 1rem;
+    }
+
     &-price{
         margin: 1rem 0;
+        color: $light-green;
     }
 
     

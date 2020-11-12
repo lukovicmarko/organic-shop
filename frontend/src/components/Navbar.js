@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CartCount from './CartCount';
 
 const Navbar = () => {
     return (
@@ -13,11 +14,15 @@ const Navbar = () => {
                 <li className="navbar-link">
                     <Link to="/">Sing In</Link>
                 </li>
-                <li id="navbar-cart">
-                    <Link to="/cart">
-                        <img src="/icons/cart.png" className="navbar-cart__image" alt="cart.png" />
-                    </Link>
-                </li>
+                <div style={{ display: 'flex' }}>
+                    <li id="navbar-cart">
+                        <Link to="/cart">
+                            <img src="/icons/cart.png" className="navbar-cart__image" alt="cart.png" />
+                        </Link>
+                    </li>
+                    <CartCount count={10} />
+                </div>
+
             </ul>
         </nav>
     )

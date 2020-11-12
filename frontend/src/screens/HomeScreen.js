@@ -6,7 +6,7 @@ import Spinner from '../components/Spinner';
 import Message from '../components/Message';
 import { listProducts } from '../actions/productActions';
 
-const HomeScreen = () => {
+const HomeScreen = ({ match, history }) => {
     const dispatch = useDispatch();
 
     const productsList = useSelector(state => state.products);
@@ -27,7 +27,12 @@ const HomeScreen = () => {
                         <div className="products-list">
                             {
                                 products.map(product => (
-                                    <Product product={product} key={product._id} />
+                                    <Product
+                                        key={product._id}
+                                        product={product}
+                                        history={history}
+                                        match={match}
+                                    />
                                 ))
                             }
                         </div>
