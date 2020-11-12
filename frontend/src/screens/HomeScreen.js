@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Product from '../components/Product';
 import Header from '../components/Header';
+import Spinner from '../components/Spinner';
+import Message from '../components/Message';
 import { listProducts } from '../actions/productActions';
 
 const HomeScreen = () => {
@@ -15,24 +17,23 @@ const HomeScreen = () => {
     }, [dispatch]);
 
     return (
-        <div>
+        <>
             <Header />
 
             <div className="products">
                 <h1 className="products-title">Latest Products</h1>
                 {
-                    loading ? <h2>Loading...</h2> : error ? <h3>error</h3> : <div className="products-list">
-                        {
-                            products.map(product => (
-                                <Product product={product} key={product._id} />
-                            ))
-                        }
-                    </div>
+                    loading ? <Spinner /> : error ? <Message>{error}</Message> :
+                        <div className="products-list">
+                            {
+                                products.map(product => (
+                                    <Product product={product} key={product._id} />
+                                ))
+                            }
+                        </div>
                 }
-
             </div>
-
-        </div>
+        </>
     )
 }
 
