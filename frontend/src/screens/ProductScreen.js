@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { listProductDetails } from '../actions/productActions';
 import Message from '../components/Message';
 import Spinner from '../components/Spinner';
+import Rating from '../components/Rating';
+import AddToCartButton from '../components/AddToCartButton';
 
 const ProductScreen = ({ history, match }) => {
     const [qty, setQty] = useState(0);
@@ -13,7 +15,7 @@ const ProductScreen = ({ history, match }) => {
     const productDetails = useSelector(state => state.productDetails);
 
     const { loading, error, product } = productDetails;
-    const { name, image } = product;
+    const { _id, name, image, price, rating, numReviews, countInStock, description } = product;
 
     useEffect(() => {
         dispatch(listProductDetails(match.params.id));
@@ -21,7 +23,7 @@ const ProductScreen = ({ history, match }) => {
 
 
     return (
-        <>
+        <div style={{ padding: '3rem 10rem' }}>
             <Link className="btn-light" to="/" >
                 <i className="fas fa-angle-left"></i>
             </Link>
@@ -29,14 +31,48 @@ const ProductScreen = ({ history, match }) => {
                 loading ? <Spinner /> : error ? <Message>{error}</Message> : (
                     <div className="product-details">
                         <img src={image} className="product-details__image" alt="product.png" />
-                        <div>
-                            {name}
+                        <div className="product-details__info">
+                            <div>
+                                <h1>{name}</h1>
+                                <Rating value={rating} text={` ${numReviews} reviews`} />
+                                <h2>Price: <span className="product-price">${price}</span></h2>
+                                <p>{description}</p>
+                            </div>
+                            <div className="product-details__status">
+                                <div className="stock">
+                                    <div>
+                                        <p>Status: </p>
+                                        {countInStock > 0 && <p>Quantity:</p>}
+                                    </div>
+                                    <div>
+                                        <p>{countInStock > 0 ? 'In stock' : 'Sold out'}</p>
+
+                                        {countInStock > 0 && (
+                                            <select value={qty} onChange={(e) => setQty(e.target.value)}>
+                                                {
+                                                    [...Array(countInStock).keys()].map(x => (
+                                                        <option key={x + 1} value={x + 1}>{x + 1}</option>
+                                                    ))
+                                                }
+                                            </select>
+                                        )}
+
+                                    </div>
+                                </div>
+
+                                <AddToCartButton
+                                    countInStock={countInStock}
+                                    history={history}
+                                    id={_id}
+                                    qty={qty}
+                                />
+                            </div>
                         </div>
                     </div>
                 )
             }
 
-        </>
+        </div>
     )
 }
 

@@ -1,11 +1,17 @@
-.btn{
-        background-color: $light-green;
-        color: $color-white;
-        display: inline-block;
-        padding: 1rem 3rem;
-        margin-top: 1rem;
-        border-radius: 3px;
-        &:hover{
-            opacity: .9;
-        } 
+.btn{    
+    color: $color-white;
+    display: inline-block;
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    border-radius: 3px;
+    text-align: center;
+    border: none;
+    font-size: 1.2rem;
+    &:hover{
+        opacity: .9;
+        cursor: pointer;
+    } 
+    &:focus,&:active{
+        outline: none;
     }
+}

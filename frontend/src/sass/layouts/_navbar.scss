@@ -6,7 +6,7 @@
     z-index: 1;
     padding: 1rem;
     background-color: $color-white;   
-
+    box-shadow: 0 0 24px 0 $shadow-color;    
     ul{
         display: flex;
         align-items: center;        

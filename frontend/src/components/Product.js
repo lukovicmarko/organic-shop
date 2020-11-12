@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Rating from './Rating';
-import AddToCartButton from './AddToCartButton';
 
 const Product = ({ product }) => {
     const { _id, name, image, price, countInStock, rating, numReviews } = product;

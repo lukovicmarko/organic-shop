@@ -1,13 +1,23 @@
 import React from 'react'
 
-const AddToCartButton = ({ history, id, qty }) => {
+const AddToCartButton = ({ history, id, qty, countInStock }) => {
 
     const addToCartHandler = () => {
         history.push(`/cart/${id}?qty=${qty}`);
     }
 
     return (
-        <a href="#" className="btn" onClick={addToCartHandler}>Add to cart</a>
+        <button
+            className="btn"
+            onClick={addToCartHandler}
+            type="button"
+            disabled={countInStock === 0}
+            style={{
+                backgroundColor: countInStock === 0 ? '#BEBEBD' : '#22BBA7'
+            }}
+        >
+            Add to cart
+        </button>
     )
 }
 

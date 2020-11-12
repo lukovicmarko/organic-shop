@@ -1,9 +1,35 @@
 .product-details{
     display: grid;
-    grid-template-columns: 2fr 1fr;
-
+    grid-template-columns: repeat(2,1fr);
+    height: 70vh;    
     &__image{
         width: 47rem;
-        height: 34rem;
+        height: 34rem;            
+    }
+    &__info{
+        padding-left: 2rem;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        h2{
+            margin-top: 2rem; 
+            span{
+                margin-left: .5rem;
+            }          
+        }
+    }
+
+    &__status{
+        height: 13rem;
+        border: 1px solid $color-grey;
+        margin-left: 1rem;
+        padding: 1rem 2rem;    
+        display: flex;
+        flex-direction: column;
+
+        .stock{
+            display: flex;
+            justify-content: space-between;
+        }      
+        
     }
 }

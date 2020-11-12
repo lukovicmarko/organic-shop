@@ -6,7 +6,7 @@
     border: 1px solid $color-grey;
     border-radius: 2px;
     padding: 0 2rem 2rem 2rem;
-    box-shadow: 0 12px 24px 0 rgba(0,0,0,0.09);    
+    box-shadow: 0 12px 24px 0 $shadow-color;    
 
     &-countInStock{       
         color: $color-white;
