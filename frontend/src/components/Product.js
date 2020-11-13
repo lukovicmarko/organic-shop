@@ -7,8 +7,8 @@ const Product = ({ product }) => {
 
     return (
         <div className="product">
-            <div className="product-countInStock" style={{ backgroundColor: countInStock == 0 ? '#EE3C43' : '#FFFFFF' }}>
-                {countInStock == 0 && 'Sold out'}
+            <div className="product-countInStock" style={{ backgroundColor: countInStock === 0 ? '#EE3C43' : '#FFFFFF' }}>
+                {countInStock === 0 && 'Sold out'}
             </div>
             <Link to={`/product/${_id}`}>
                 <img src={image} className="product-image" alt="product.png" />
@@ -21,12 +21,6 @@ const Product = ({ product }) => {
             <Rating value={rating} text={` ${numReviews} reviews`} />
 
             <h3 className="product-price">$ {price}</h3>
-
-            {/* <AddToCartButton
-                history={history}
-                id={_id}
-                qty={countInStock}
-            /> */}
 
         </div>
     )
