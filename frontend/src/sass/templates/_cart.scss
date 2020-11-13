@@ -32,4 +32,19 @@
             border-top: $border;
         } 
     }
+
+    &-subtotal{
+       width: 400px;
+       border: $border;
+       padding: 2rem;
+       margin-right: 2rem;
+       text-align: center;
+       display: flex;
+       flex-direction: column;
+       justify-self: right;
+       
+       h2{
+           text-transform: uppercase;
+       }
+    }
 }

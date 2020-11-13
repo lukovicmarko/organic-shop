@@ -14,11 +14,17 @@ const CartScreen = ({ match, location, history }) => {
     const cart = useSelector(state => state.cart);
     const { cartItems } = cart;
 
+    const checkouttHandler = () => {
+        history.push('/login?redirect=shipping');
+    }
+
     useEffect(() => {
         if (productId) {
             dispatch(addToCart(productId, qty));
         }
     }, [dispatch, productId, qty]);
+
+
 
     return (
         <div className="cart">
@@ -43,8 +49,21 @@ const CartScreen = ({ match, location, history }) => {
                                     ))
                                 }
                             </div>
-                            <div>
-                                subtotal
+                            <div className="cart-subtotal">
+                                <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h2>
+                                <p>$ {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}</p>
+                                <button
+                                    type="button"
+                                    className="btn"
+                                    onClick={checkouttHandler}
+                                    type="button"
+                                    disabled={cartItems.length === 0}
+                                    style={{
+                                        backgroundColor: cartItems.length === 0 ? '#BEBEBD' : '#22BBA7'
+                                    }}
+                                >
+                                    Proceed To Checkout
+                                </button>
                             </div>
                         </div>
                     )

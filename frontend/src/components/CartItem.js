@@ -7,6 +7,15 @@ const CartItem = ({ item }) => {
 
     const dispatch = useDispatch();
 
+    const removeItem = id => {
+        const confirm = window.confirm('Are u sure you want to remove this phone from cart?');
+
+        if (confirm) {
+            dispatch(removeFromCart(id));
+        } else {
+            return false;
+        }
+    }
 
     return (
         <div className="cart-item">
@@ -20,7 +29,7 @@ const CartItem = ({ item }) => {
                 }
             </select>
             <p>$ {price}</p>
-            <i className="fas fa-trash" onClick={() => dispatch(removeFromCart(id))}></i>
+            <i className="fas fa-trash" onClick={() => removeItem(id)}></i>
         </div>
     )
 }
