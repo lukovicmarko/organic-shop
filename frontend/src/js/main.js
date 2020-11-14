@@ -1,8 +1,6 @@
 const tabs = document.querySelectorAll('li.tab');
 const tabsContent = document.querySelectorAll('.tabs-content');
 
-console.log(tabsContent)
-
 tabs.forEach((tab, tabIndex) => {
     tab.addEventListener('click', () => {
         tabs.forEach((tab, index) => {
