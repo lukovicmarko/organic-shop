@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import Message from '../components/Message';
 import Spinner from '../components/Spinner';
 import Rating from '../components/Rating';
+import Tab from '../components/Tab';
+import Tabs from '../components/Tabs';
+
 import AddToCartButton from '../components/AddToCartButton';
 import { listProductDetails } from '../actions/productActions';
 
@@ -19,6 +22,7 @@ const ProductScreen = ({ history, match }) => {
 
     useEffect(() => {
         dispatch(listProductDetails(match.params.id));
+
     }, [dispatch, match]);
 
 
@@ -37,20 +41,14 @@ const ProductScreen = ({ history, match }) => {
                                 <Rating value={rating} text={` ${numReviews} reviews`} />
                                 <h2>Price: <span className="product-price">${price}</span></h2>
 
-                                <div className="tabs-container">
-                                    <ul className="tabs">
-                                        <li className="tab active">1</li>
-                                        <li className="tab">2</li>
-                                    </ul>
-                                    <div className="tabs-content-container">
-                                        <div className="tab-content active">
-                                            {description}
-                                        </div>
-                                        <div className="tab-content">
-                                            reviews
-                                        </div>
-                                    </div>
-                                </div>
+                                <Tabs>
+                                    <Tab label="Description">
+                                        <p>{description}</p>
+                                    </Tab>
+                                    <Tab label="Reviews">
+                                        <p>{reviews}</p>
+                                    </Tab>
+                                </Tabs>
 
                             </div>
                             <div className="product-details__status">

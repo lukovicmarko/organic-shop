@@ -1,62 +1,20 @@
-.tabs{
-    position: relative;
-    height: 40px;
-    display: flex;
-    border-bottom:1px solid #439ce8 ;
-    margin: 0;
-    padding: 0;
+.tab-buttons {
+  margin: 2rem 0 3rem; 
 }
 
-.tabs li{
-    display: inline-block;
-    height: 100%;
-    width: 100px;
-    position: relative;
-    z-index: 2;
-    padding: 16px 20px 10px;
-    cursor: pointer;
-    font-family: sans-serif;
-    font-weight: 500;
-    color: #3f4d61;
-    opacity: .5;
-    text-align: center;
-    transition: 
-            font-weigth .3s ease-in-out,
-            opacity .1s easy-in-out .1s,
-            color .3s easy-in-out;
-    font-size: 12px;      
-    
+.tab-button {
+  margin-right: 15px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
+  transition: all ease-in-out 0.2s;
+  border-bottom: 2px solid transparent;
 }
-
-.tabs li:before{
-    content: '';    
-    width: 100px;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    position: absolute;
-    background-color: #439ce8;
-    z-index: -3;
-    transform: perspective(.5em) rotateX(90deg);
-    border-radius:  100% 100% 0 0;
-    transition: 
-            border-radius .2s ease-out,
-            transform .2s ease-out;
-    transform-origin: bottom;        
-}
-
-/* first tab */
-.tabs li:first-of-type:before{transform-origin:left bottom;}
-/* last tab */
-.tabs li:last-of-type:before{transform-origin:left bottom;}
-
-.tabs li.active{
-    opacity: 1;
-    color:#fff;
-    font-weight: 700;
-}
-
-.tabs li.active:before{
-    transform: perspective(.5em) rotateX(2deg);
-    border-radius: 10px 10px 0 0;
+.active-tab {
+  border-bottom: 2px solid $light-green;
+  color: $dark-green;
 }
