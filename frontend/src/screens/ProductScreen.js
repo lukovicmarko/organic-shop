@@ -15,7 +15,7 @@ const ProductScreen = ({ history, match }) => {
     const productDetails = useSelector(state => state.productDetails);
 
     const { loading, error, product } = productDetails;
-    const { _id, name, image, price, rating, numReviews, countInStock, description } = product;
+    const { _id, name, image, price, rating, reviews, numReviews, countInStock, description } = product;
 
     useEffect(() => {
         dispatch(listProductDetails(match.params.id));
@@ -36,7 +36,22 @@ const ProductScreen = ({ history, match }) => {
                                 <h1>{name}</h1>
                                 <Rating value={rating} text={` ${numReviews} reviews`} />
                                 <h2>Price: <span className="product-price">${price}</span></h2>
-                                <p>{description}</p>
+
+                                <div className="tabs-container">
+                                    <ul className="tabs">
+                                        <li className="tab active">1</li>
+                                        <li className="tab">2</li>
+                                    </ul>
+                                    <div className="tabs-content-container">
+                                        <div className="tab-content active">
+                                            {description}
+                                        </div>
+                                        <div className="tab-content">
+                                            reviews
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div className="product-details__status">
                                 <div className="stock">

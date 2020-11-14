@@ -12,7 +12,7 @@ const Navbar = () => {
                 <li><Link to="/">Explore</Link></li>
                 <li><Link to="/">About</Link></li>
                 <li className="navbar-link">
-                    <Link to="/">Sing In</Link>
+                    <Link to="/login">Sign In</Link>
                 </li>
                 <div style={{ display: 'flex' }}>
                     <li id="navbar-cart">
